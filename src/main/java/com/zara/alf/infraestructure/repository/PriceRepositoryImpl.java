@@ -1,8 +1,8 @@
-package infraestructure.repository;
+package com.zara.alf.infraestructure.repository;
 
 
-import domain.PriceRepository;
-import domain.model.Price;
+import com.zara.alf.application.PriceRepository;
+import com.zara.alf.model.Price;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
