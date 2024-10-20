@@ -2,7 +2,7 @@ package com.zara.alf.infraestructure;
 
 
 import com.zara.alf.application.service.PriceService;
-import domain.model.Price;
+import com.zara.alf.model.Price;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;

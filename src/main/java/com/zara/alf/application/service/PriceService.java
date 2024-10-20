@@ -2,7 +2,7 @@ package com.zara.alf.application.service;
 
 import com.zara.alf.application.PriceRepository;
 import com.zara.alf.application.validator.PriceValidator;
-import domain.model.Price;
+import com.zara.alf.model.Price;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

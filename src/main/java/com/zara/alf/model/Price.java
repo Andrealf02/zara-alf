@@ -1,4 +1,4 @@
-package domain.model;
+package com.zara.alf.model;
 
 import java.time.LocalDateTime;
 
