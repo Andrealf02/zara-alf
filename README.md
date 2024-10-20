@@ -1,24 +1,81 @@
-# Getting Started
+# Servicio de Precios de Zara
 
-### Reference Documentation
-For further reference, please consider the following sections:
+Este proyecto es un servicio REST desarrollado en Spring Boot que permite consultar precios aplicables para productos de la marca Zara en un rango de fechas determinado. Utiliza una base de datos en memoria H2 y está diseñado para manejar solicitudes con parámetros de fecha de aplicación, identificador de producto y identificador de cadena.
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/3.3.4/gradle-plugin)
-* [Create an OCI image](https://docs.spring.io/spring-boot/3.3.4/gradle-plugin/packaging-oci-image.html)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/3.3.4/reference/htmlsingle/index.html#web)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/3.3.4/reference/htmlsingle/index.html#data.sql.jpa-and-spring-data)
+## Tabla de Contenidos
 
-### Guides
-The following guides illustrate how to use some features concretely:
+- [Descripción del Proyecto](#descripción-del-proyecto)
+- [Tecnologías Utilizadas](#tecnologías-utilizadas)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Configuración del Proyecto](#configuración-del-proyecto)
+- [Uso](#uso)
+- [Ejemplos de Peticiones](#ejemplos-de-peticiones)
+- [Pruebas](#pruebas)
+- [Mejoras Futuras](#mejoras-futuras)
+- [Contribuciones](#contribuciones)
+- [Licencia](#licencia)
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
+## Descripción del Proyecto
 
-### Additional Links
-These additional references should also help you:
+La aplicación proporciona un endpoint REST que acepta los siguientes parámetros:
 
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
+- **fecha de aplicación**: La fecha y hora para la cual se desea consultar el precio.
+- **identificador de producto**: El ID del producto cuyo precio se quiere consultar.
+- **identificador de cadena**: El ID de la cadena (en este caso, 1 para Zara).
 
+La aplicación devuelve el identificador de producto, identificador de cadena, tarifa a aplicar, fechas de aplicación y precio final.
+
+### Tabla de Precios
+
+La base de datos incluye la tabla **PRICES** con los siguientes campos:
+
+- **BRAND_ID**: foreign key de la cadena del grupo (1 = ZARA).
+- **START_DATE**: fecha de inicio de la tarifa.
+- **END_DATE**: fecha de fin de la tarifa.
+- **PRICE_LIST**: identificador de la tarifa de precios aplicable.
+- **PRODUCT_ID**: identificador del producto.
+- **PRIORITY**: desambiguador de aplicación de precios (mayor valor numérico indica mayor prioridad).
+- **PRICE**: precio final de venta.
+- **CURR**: código ISO de la moneda (EUR).
+
+## Tecnologías Utilizadas
+
+- Java 21
+- Spring Boot 3.3.4
+- Spring Data JPA
+- H2 Database (base de datos en memoria)
+- JUnit 5 (para pruebas)
+
+## Estructura del Proyecto
+
+```plaintext
+src
+├── main
+│   ├── java
+│   │   └── com
+│   │       └── zara
+│   │           └── alf
+│   │               ├── application
+│   │               ├── infrastructure
+│   │               └── domain
+│   └── resources
+├── test
+│   └── java
+│       └── com
+│           └── zara
+│               └── alf
+
+```
+
+## Mejoras Futuras
+
+- **Swagger**: Implementar Swagger para una documentación interactiva de la API.
+- **DTOs**: Introducir Data Transfer Objects para un manejo más claro de las respuestas de la API.
+- **Manejo de Excepciones**: Añadir un sistema centralizado de manejo de excepciones.
+- **Pruebas Unitarias y de Integración**: Mejorar la cobertura de pruebas.
+- **Configuración de Seguridad**: Implementar medidas de seguridad como autenticación y autorización.
+
+
+## Contribuciones
+
+- **ALF**
