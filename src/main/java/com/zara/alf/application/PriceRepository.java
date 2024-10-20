@@ -1,7 +1,7 @@
 package com.zara.alf.application;
 
 
-import com.zara.alf.model.Price;
+import domain.model.Price;
 
 import java.time.LocalDateTime;
 import java.util.List;
