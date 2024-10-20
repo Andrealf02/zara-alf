@@ -1,7 +1,10 @@
 package com.zara.alf.application.validator;
 
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDateTime;
 
+@Component
 public class PriceValidator {
 
     public void validateApplicationDate(LocalDateTime applicationDate) {

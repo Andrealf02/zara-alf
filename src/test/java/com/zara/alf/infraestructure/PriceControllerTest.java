@@ -1,7 +1,7 @@
 package com.zara.alf.infraestructure;
 
 import com.zara.alf.application.service.PriceService;
-import com.zara.alf.model.Price;
+import domain.model.Price;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

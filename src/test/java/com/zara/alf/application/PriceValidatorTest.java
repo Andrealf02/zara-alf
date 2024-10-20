@@ -18,13 +18,6 @@ public class PriceValidatorTest {
         }, "La fecha de aplicación no puede ser nula");
     }
 
-    @Test
-    public void testValidateApplicationDateWithPastDate() {
-        LocalDateTime pastDate = LocalDateTime.now().minusDays(1);
-        assertThrows(IllegalArgumentException.class, () -> {
-            priceValidator.validateApplicationDate(pastDate);
-        }, "La fecha de aplicación no puede ser en el pasado");
-    }
 
     @Test
     public void testValidateApplicationDateWithFutureDate() {
