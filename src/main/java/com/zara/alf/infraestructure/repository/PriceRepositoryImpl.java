@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Repository
@@ -29,6 +30,8 @@ public class PriceRepositoryImpl implements PriceRepository {
                         price.getProductId().equals(productId) &&
                         !applicationDate.isBefore(price.getStartDate()) &&
                         !applicationDate.isAfter(price.getEndDate()))
-                .toList();
+                .max(Comparator.comparingInt(Price::getPriority))
+                .stream().toList();
     }
+
 }

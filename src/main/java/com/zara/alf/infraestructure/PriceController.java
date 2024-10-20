@@ -5,6 +5,7 @@ import com.zara.alf.application.service.PriceService;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -21,8 +22,10 @@ public class PriceController {
             @RequestParam("applicationDate") String applicationDate,
             @RequestParam("productId") Long productId,
             @RequestParam("brandId") Long brandId) {
-        LocalDateTime dateTime = LocalDateTime.parse(applicationDate);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime dateTime = LocalDateTime.parse(applicationDate, formatter);
+
         return priceService.getApplicablePrices(dateTime, productId, brandId);
     }
 }
-
